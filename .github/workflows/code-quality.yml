@@ -1,0 +1,7 @@
+name: CodeQuality
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run

@@ -4,12 +4,15 @@
     "commonjs": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
   "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"]
-  }
+    "prettier/prettier": "error",
+    "no-undefined": "error",
+    "no-unused-expressions":"error",
+    "no-unused-vars":"error"
+},
+  "plugins": ["prettier"]
 }
