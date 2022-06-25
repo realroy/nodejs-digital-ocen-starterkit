@@ -12,7 +12,9 @@
     "prettier/prettier": "error",
     "no-undefined": "error",
     "no-unused-expressions":"error",
-    "no-unused-vars":"error"
+    "no-unused-vars":"error",
+    "no-var": "error",
+    "no-console": "error"
  },
   "plugins": ["prettier"]
 }
