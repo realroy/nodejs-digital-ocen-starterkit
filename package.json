@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=nodejs-digital-ocean-starter-kit:* node ./bin/www"
+    "start": "DEBUG=nodejs-digital-ocean-starter-kit:* node ./bin/www",
+    "format": "prettier --write --ignore-unknown ."
   },
   "engines": {
     "npm": ">=8.9.0",
@@ -17,5 +18,10 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.7.1"
   }
 }
