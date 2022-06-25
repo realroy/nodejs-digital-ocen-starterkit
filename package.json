@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=nodejs-digital-ocean-starter-kit:* node ./bin/www",
+    "start": "DEBUG=nodejs-digital-ocean-starter-kit:* node ./src/bin/www",
     "lint": "eslint src/**/*.js",
-    "format": "prettier --write --ignore-unknown ."
+    "format": "prettier --write --ignore-unknown .",
+    "test": "jest --runInBand"
   },
   "engines": {
     "npm": ">=8.9.0",
@@ -24,6 +25,9 @@
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "2.7.1"
+    "jest": "^28.1.1",
+    "prettier": "2.7.1",
+    "superagent": "^8.0.0",
+    "supertest": "^6.2.3"
   }
 }

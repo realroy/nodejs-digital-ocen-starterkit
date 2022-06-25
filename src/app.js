@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-require("dotenv");
+require("dotenv").config();
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -12,14 +12,14 @@ const usersRouter = require("./routes/users");
 const app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "src", "views"));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.resolve('..', "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

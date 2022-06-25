@@ -8,6 +8,9 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
+  "ignorePatterns": [
+    "**/*.spec.js"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "no-undefined": "error",
