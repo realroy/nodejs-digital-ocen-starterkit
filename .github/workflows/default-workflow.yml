@@ -1,4 +1,4 @@
-name: code-quality
+name: default-workflow
 on:
   push:
     branches-ignore:
@@ -38,8 +38,11 @@ jobs:
 
       - name: Build docker image
         run: docker build -t $CONTAINER_NAME .
+
+      - name: Log in to DigitalOcean Container Registry with short-lived credentials
+        run: doctl registry login --expiry-seconds 1200
       
-      - name: Push image
+      - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
