@@ -43,6 +43,8 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Tag and push image
         run: |
           docker tag $CONTAINER_NAME $CONTAINER_TAG
           docker push $CONTAINER_TAG
