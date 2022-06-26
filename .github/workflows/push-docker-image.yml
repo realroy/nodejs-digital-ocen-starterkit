@@ -1,0 +1,13 @@
+name: push-docker-image
+on:
+  repository_dispatch:
+    types: [code-quality]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+
+  
