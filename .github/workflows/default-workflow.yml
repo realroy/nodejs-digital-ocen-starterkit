@@ -39,13 +39,10 @@ jobs:
       - name: Build docker image
         run: docker build -t $CONTAINER_NAME .
       
-      - name: Install doctl
+      - name: Push image
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      
-      - name: Tag image
-        run: docker tag $CONTAINER_NAME $CONTAINER_TAG
-
-      - name: Push image
-        run: docker push $CONTAINER_TAG
+        run: |
+          docker tag $CONTAINER_NAME $CONTAINER_TAG
+          docker push $CONTAINER_TAG
