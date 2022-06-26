@@ -4,9 +4,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -36,6 +33,16 @@ jobs:
 
       - name: Run test
         run: npm run test
+
+  push-docker-image:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Greeting
+        run: echo Greeting
 
 
   
