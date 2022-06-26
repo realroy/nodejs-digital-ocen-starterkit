@@ -3,6 +3,10 @@ on:
   push:
     branches-ignore:
       - hotfix/*
+env:
+  CONTAINER_NAME: ${{github.repository}}:${{github.sha}}
+  CONTAINER_REGISTRY: registry.digitalocean.com/realroy-habour/realroy
+  CONTAINER_TAG: registry.digitalocean.com/realroy-habour/realroy/${{github.repository}}:${{github.sha}}
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -33,6 +37,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build docker image
-        env:
-          CONTAINER_NAME: ${{github.repository}}:${{github.sha}}
         run: docker build -t $CONTAINER_NAME .
+      
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      
+      - name: Tag image
+        run: docker tag $CONTAINER_NAME $CONTAINER_TAG
+
+      - name: Push image
+        run: docker push $CONTAINER_TAG
