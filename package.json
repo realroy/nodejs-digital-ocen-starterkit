@@ -6,7 +6,8 @@
     "start": "DEBUG=nodejs-digital-ocean-starter-kit:* node ./src/bin/www",
     "lint": "eslint src/**/*.js",
     "format": "prettier --write --ignore-unknown .",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "act": "act --secret-file .secrets"
   },
   "engines": {
     "npm": ">=8.9.0",
